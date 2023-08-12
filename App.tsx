@@ -1,4 +1,4 @@
-import { ActivityIndicator, View } from 'react-native'
+import { ActivityIndicator } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import {
   useFonts,
@@ -18,11 +18,9 @@ export default function App() {
   }
 
   return (
-    // <View>
-    //   <Home />
-
-    //   <StatusBar style="auto" />
-    // </View>
-    <Home />
+    <>
+      <StatusBar style="light" />
+      <Home />
+    </>
   )
 }

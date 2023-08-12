@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 12,
+    marginBottom: 8,
   },
 
   containerTextTask: {

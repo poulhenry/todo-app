@@ -7,12 +7,19 @@ type TaskProps = {
   id?: string
   name: string
   isCompleted: boolean
+  onCompletedTask: () => void
+  onRemoveTask: () => void
 }
 
-export function Task({ name, isCompleted }: TaskProps) {
+export function Task({
+  name,
+  isCompleted,
+  onCompletedTask,
+  onRemoveTask,
+}: TaskProps) {
   return (
     <View style={styles.taskContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onCompletedTask}>
         <MaterialCommunityIcons
           name={
             isCompleted
@@ -32,7 +39,7 @@ export function Task({ name, isCompleted }: TaskProps) {
         </Text>
       </View>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onRemoveTask}>
         <MaterialCommunityIcons
           name="trash-can-outline"
           size={22}

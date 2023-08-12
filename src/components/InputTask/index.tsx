@@ -1,28 +1,19 @@
-import { useState } from 'react'
 import { TextInput, TouchableOpacity, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
-import { v4 as uuid } from 'uuid'
 import { styles } from './styles'
 import { theme } from '../../theme'
-import { TaskData } from '../../screens/Home'
 
 type InputTaskProps = {
-  onInputText: (tasks: TaskData[]) => void
+  valueInput: string
+  setValueInput: (value: string) => void
+  onInputText: () => void
 }
 
-export function InputTask({ onInputText }: InputTaskProps) {
-  const [valueInput, setValueInput] = useState('')
-
-  function handleSubmitInputTask() {
-    const task = {
-      id: '1233',
-      name: valueInput,
-      isCompleted: false,
-    }
-
-    onInputText([task])
-  }
-
+export function InputTask({
+  valueInput,
+  setValueInput,
+  onInputText,
+}: InputTaskProps) {
   return (
     <View style={styles.containerInputTask}>
       <TextInput
@@ -33,7 +24,7 @@ export function InputTask({ onInputText }: InputTaskProps) {
         value={valueInput}
       />
 
-      <TouchableOpacity onPress={handleSubmitInputTask} style={styles.button}>
+      <TouchableOpacity onPress={onInputText} style={styles.button}>
         <MaterialIcons
           name="add-circle-outline"
           size={20}
